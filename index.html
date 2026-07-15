@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sashwat Shreeja — Marketing Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#000000;
+    --card:#131313;
+    --card-hi:#1D1D1D;
+    --paper:#F4F3F1;
+    --paper-dim:#8F8F8B;
+    --cobalt:#D8D8D4;
+    --gold:#FFFFFF;
+    --rule:rgba(244,243,241,0.14);
+    --rule-strong:rgba(244,243,241,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, rgba(255,255,255,0.05), transparent 60%),
+      radial-gradient(900px 500px at 100% 10%, rgba(255,255,255,0.04), transparent 55%),
+      var(--ink);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+
+  header.masthead{
+    padding:56px 0 40px;
+    border-bottom:1px solid var(--rule-strong);
+  }
+  .dateline{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-bottom:22px;
+  }
+  .dateline::before{
+    content:"";
+    width:7px;height:7px;border-radius:50%;
+    background:var(--gold);
+    display:inline-block;
+    box-shadow:0 0 0 3px rgba(232,163,61,0.18);
+  }
+  h1.name{
+    font-family:'Fraunces',serif;
+    font-optical-sizing:auto;
+    font-weight:700;
+    font-size:clamp(44px,7.2vw,80px);
+    line-height:0.96;
+    margin:0 0 20px;
+    letter-spacing:-0.015em;
+  }
+  p.thesis{
+    font-size:19px;
+    max-width:660px;
+    color:var(--paper);
+    margin:0 0 28px;
+  }
+  p.thesis em{
+    font-style:normal;
+    color:var(--cobalt);
+    font-weight:600;
+  }
+  .role-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .role-tags span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    padding:6px 12px;
+    border:1px solid var(--rule-strong);
+    border-radius:100px;
+    color:var(--paper-dim);
+  }
+
+  section.ticker{
+    padding:36px 0;
+    border-bottom:1px solid var(--rule);
+    overflow-x:auto;
+  }
+  .ticker-row{
+    display:flex;
+    gap:0;
+    min-width:max-content;
+  }
+  .metric{
+    padding:0 30px;
+    border-right:1px solid var(--rule);
+    min-width:150px;
+  }
+  .metric:first-child{padding-left:0;}
+  .metric .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    margin-bottom:8px;
+  }
+  .metric .value{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:21px;
+    font-weight:500;
+    white-space:nowrap;
+  }
+  .metric .value .delta{
+    color:var(--cobalt);
+    font-size:15px;
+    margin-left:6px;
+  }
+  .metric .value .arrow-up{color:var(--cobalt);}
+
+  section.block{padding:64px 0;border-bottom:1px solid var(--rule);}
+  section.block:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:16px;
+    margin-bottom:36px;
+  }
+  .section-head .idx{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--gold);
+    font-size:13px;
+  }
+  .section-head h2{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:29px;
+    margin:0;
+  }
+  .section-head::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--rule-strong);
+  }
+  .section-sub{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--paper-dim);
+    margin:-24px 0 30px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 280px;
+    gap:36px;
+    align-items:start;
+  }
+  .about-body{
+    font-size:15.5px;
+    color:var(--paper);
+  }
+  .about-body p{margin:0 0 18px;}
+  .about-body p:first-child{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:21px;
+    color:var(--paper);
+  }
+  .about-photo{margin:0;}
+  .about-photo img{
+    width:100%;
+    border-radius:6px;
+    border:1px solid var(--rule-strong);
+    display:block;
+    filter:grayscale(15%);
+  }
+  .about-photo figcaption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--paper-dim);
+    margin-top:8px;
+  }
+  @media (max-width:720px){
+    .about-grid{grid-template-columns:1fr;}
+  }
+
+  .link-preview{
+    display:flex;
+    gap:16px;
+    border:1px solid var(--rule);
+    border-radius:6px;
+    background:var(--card);
+    padding:16px;
+    text-decoration:none;
+    margin:16px 0 4px;
+    max-width:560px;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .link-preview:hover{border-color:var(--cobalt);background:var(--card-hi);}
+  .link-preview .lp-icon{
+    flex-shrink:0;
+    width:56px;height:56px;
+    border-radius:6px;
+    background:linear-gradient(135deg, #3A3A38, #0A0A0A);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:600;
+    font-size:11px;
+    color:var(--paper);
+    text-align:center;
+    line-height:1.2;
+  }
+  .link-preview .lp-text{flex:1;min-width:0;}
+  .link-preview .lp-site{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--gold);
+    margin-bottom:4px;
+  }
+  .link-preview .lp-title{
+    font-family:'Fraunces',serif;
+    font-size:14.5px;
+    color:var(--paper);
+    margin-bottom:4px;
+    line-height:1.3;
+  }
+  .link-preview .lp-quote{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    color:var(--paper-dim);
+    font-style:italic;
+  }
+
+  .dispatch{
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:28px;
+  }
+  .dispatch:first-child{border-top:none;}
+  .dispatch .meta{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--paper-dim);
+    line-height:1.7;
+  }
+  .dispatch .meta .org{
+    color:var(--paper);
+    font-size:14px;
+    font-weight:600;
+    display:block;
+    margin-bottom:4px;
+  }
+  .dispatch .meta .dates{
+    color:var(--gold);
+  }
+  .dispatch .body h3{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:20px;
+    margin:0 0 10px;
+  }
+  .dispatch .body p{
+    margin:0 0 14px;
+    color:var(--paper);
+    max-width:600px;
+  }
+  .result-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+  .result-chips span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    padding:5px 10px;
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    color:var(--cobalt);
+  }
+  .dispatch .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-top:8px;
+  }
+  .dispatch .links a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--paper);
+    text-decoration:none;
+    border-bottom:1px solid var(--rule-strong);
+    padding-bottom:2px;
+  }
+  .dispatch .links a:hover{color:var(--cobalt);border-color:var(--cobalt);}
+
+  .proof-gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin:18px 0 6px;
+  }
+  .proof-gallery a{display:block;}
+  .proof-gallery img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    object-position:top;
+    border-radius:6px;
+    border:1px solid var(--rule);
+    display:block;
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .proof-gallery img:hover{transform:translateY(-3px);border-color:var(--cobalt);}
+  .proof-cap{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--paper-dim);
+    margin-top:6px;
+  }
+
+  .writing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+  }
+  .writing-card{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:22px;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .writing-card:hover{background:var(--card-hi);transform:translateY(-2px);}
+  .writing-card .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--gold);
+    margin-bottom:10px;
+    display:block;
+  }
+  .writing-card h4{
+    font-family:'Fraunces',serif;
+    font-size:17px;
+    font-weight:500;
+    margin:0 0 10px;
+  }
+  .writing-card p{
+    font-size:13.5px;
+    color:var(--paper-dim);
+    margin:0 0 16px;
+  }
+  .writing-card a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--cobalt);
+    text-decoration:none;
+    border-bottom:1px solid rgba(92,124,255,0.4);
+    padding-bottom:2px;
+  }
+
+  .cred-cols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  .cred-cols h4{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--paper-dim);
+    margin:0 0 16px;
+  }
+  .cred-item{
+    padding:14px 0;
+    border-top:1px solid var(--rule);
+  }
+  .cred-item:first-of-type{border-top:none;}
+  .cred-item .t{font-weight:600;font-size:14.5px;margin-bottom:3px;}
+  .cred-item .s{font-size:13px;color:var(--paper-dim);}
+
+  footer{
+    padding:56px 0 60px;
+    text-align:left;
+  }
+  footer .cta{
+    font-family:'Fraunces',serif;
+    font-size:clamp(28px,4vw,40px);
+    font-weight:500;
+    margin:0 0 22px;
+    max-width:600px;
+  }
+  footer .links{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  footer .links a{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--paper);
+    text-decoration:none;
+    border-bottom:1px solid var(--rule-strong);
+    padding-bottom:3px;
+  }
+  footer .links a:hover{color:var(--cobalt);border-color:var(--cobalt);}
+  footer .fine{
+    margin-top:40px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--paper-dim);
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .5s ease, transform .5s ease;
+  }
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  @media (max-width:720px){
+    .dispatch{grid-template-columns:1fr;gap:10px;}
+    .writing-grid{grid-template-columns:1fr;}
+    .cred-cols{grid-template-columns:1fr;gap:24px;}
+    .proof-gallery{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="dateline">Berlin — Filed by Sashwat Shreeja — B2B SaaS Marketing</div>
+    <h1 class="name">Sashwat Shreeja</h1>
+    <p class="thesis">Product marketing &amp; demand gen for B2B SaaS. I've cut cost‑per‑lead <em>in half</em>, turned weekly organic tracking into a <em>60% pipeline lift</em>, and before that ran PR launches for Spotify and Kia Motors in India.</p>
+    <div class="role-tags">
+      <span>Product Marketing</span>
+      <span>Demand Generation</span>
+      <span>Performance Marketing</span>
+      <span>Content Strategy</span>
+      <span>GTM</span>
+    </div>
+  </header>
+
+  <section class="block reveal">
+    <div class="section-head"><span class="idx">—</span><h2>About me</h2></div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Full-stack marketer. I move fluidly across product marketing, demand generation, content strategy, and performance — go-to-market, SEO/GEO, paid acquisition, website optimization, and positioning all sit in the same toolkit.</p>
+        <p>5+ years across B2B SaaS, AI, fintech, healthcare, government, and consumer brands — from cutting cost-per-lead in half to authoring an award-winning crisis campaign to launches that reached millions. Equally at home in a spreadsheet and in the headline.</p>
+        <p>What keeps me here: marketing never sits still, and neither do I. That restlessness shows up outside work too — indoor skydiving included.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ticker reveal">
+    <div class="ticker-row">
+      <div class="metric">
+        <div class="label">Cost per lead</div>
+        <div class="value">€300 <span class="delta">→ €150</span></div>
+      </div>
+      <div class="metric">
+        <div class="label">Pipeline lift</div>
+        <div class="value"><span class="arrow-up">▲</span> 60%</div>
+      </div>
+      <div class="metric">
+        <div class="label">Lead-quality tracking accuracy</div>
+        <div class="value"><span class="arrow-up">▲</span> 35%</div>
+      </div>
+      <div class="metric">
+        <div class="label">MQL → SQL conversion</div>
+        <div class="value"><span class="arrow-up">▲</span> 25%</div>
+      </div>
+      <div class="metric">
+        <div class="label">Engagement (IPTSE)</div>
+        <div class="value"><span class="arrow-up">▲</span> 30%</div>
+      </div>
+      <div class="metric">
+        <div class="label">Programme reach</div>
+        <div class="value">15,000+</div>
+      </div>
+      <div class="metric">
+        <div class="label">Awards</div>
+        <div class="value" style="font-size:14px;line-height:1.5;">PR Awards Asia '20<br>German AI Awards '24</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="section-head"><span class="idx">01</span><h2>Dispatches — product &amp; growth marketing</h2></div>
+    <div class="section-sub">brighter AI Technologies · a Milestone Systems company · Berlin</div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Junior Marketing Manager</span>
+        <span class="dates">May 2025 – May 2026</span>
+      </div>
+      <div class="body">
+        <h3>Owning CPL performance end to end</h3>
+        <p>Took ownership of campaign performance and cost reporting across the funnel, coordinating sign-off across Product, Sales, and Design so marketing spend and messaging stayed aligned. Drove weekly organic-performance monitoring from raw tracking into a pipeline-level result — the kind of full-funnel accountability that's shaped the move toward broader growth and product-marketing ownership.</p>
+        <div class="result-chips">
+          <span>CPL €300 → €150</span>
+          <span>+60% pipeline improvement</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Product Marketing Associate</span>
+        Intern<br>
+        <span class="dates">Sept 2024 – Apr 2025</span>
+      </div>
+      <div class="body">
+        <h3>Building the qualification framework from scratch</h3>
+        <p>Designed and owned a company-wide lead qualification framework — the foundation the growth reporting above was later built on. Ran structured A/B testing and closed the loop between marketing and sales systems on MQL-to-SQL conversion, establishing the measurement discipline that carried into the Junior Marketing Manager role.</p>
+        <div class="result-chips">
+          <span>+35% lead-quality tracking accuracy</span>
+          <span>+25% MQL → SQL conversion</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Technical benchmark report</span>
+        WIDERFACE dataset<br>
+        Automotive line
+      </div>
+      <div class="body">
+        <h3>Turning a model benchmark into a sales asset</h3>
+        <p>Wrote and designed the performance benchmark report for the automotive product line, translating a technical face-detection evaluation on the public WIDERFACE dataset into a customer-facing document comparing detection thresholds against AWS, Azure, and BriefCam across GDPR, CCPA, APPI, and PIPL markets.</p>
+        <div class="result-chips">
+          <span>Precision 0.869</span>
+          <span>Recall 0.958</span>
+          <span>F1 0.911</span>
+          <span>25,038 / 26,136 faces detected</span>
+        </div>
+        <div class="links">
+          <a href="https://drive.google.com/file/d/1BZiJOg7XsffWqS9iBp-qqFejNb4WuiFM/view?usp=drive_link" target="_blank" rel="noopener">Full performance benchmark (PDF) ↗</a>
+          <a href="https://drive.google.com/file/d/1yC2-AUJB3wvXm-dzo3WVnP25R1n_pd80/view?usp=drive_link" target="_blank" rel="noopener">DNAT demo video ↗</a>
+          <a href="https://drive.google.com/file/d/1gFRlncPGKJZePUcSDILvIyixR0Yn_yWS/view?usp=drive_link" target="_blank" rel="noopener">One-pager ↗</a>
+          <a href="https://drive.google.com/file/d/1_k-bvGVpX3b7njHuKta_SvG0nBWdt5TG/view?usp=drive_link" target="_blank" rel="noopener">Brochure ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Ruhrbahn Essen</span>
+        Customer case study<br>
+        Full Body Blur
+      </div>
+      <div class="body">
+        <h3>Case study: GDPR-compliant driver training</h3>
+        <p>Wrote the customer case study on how a major Ruhr-area tram and transit operator used brighter AI's Full Body Blur to anonymize faces and license plates in real route footage for GDPR-compliant driver training simulations.</p>
+        <div class="result-chips">
+          <span>Customer case study</span>
+          <span>GDPR compliance</span>
+        </div>
+        <a class="link-preview" href="https://brighter.ai/resources/how-brighter-ais-full-body-blur-enabled-ruhrbahn-essen-to-ensure-privacy-while-training-drivers-with-video-anonymization/" target="_blank" rel="noopener">
+          <div class="lp-icon">RUHR<br>BAHN</div>
+          <div class="lp-text">
+            <div class="lp-site">brighter.ai / resources</div>
+            <div class="lp-title">brighter AI and Ruhr Bahn Essen: Privacy-Compliant Driver Training Using Tram Route Simulation</div>
+            <div class="lp-quote">"...made post-production much easier" — Dennis Dudda</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="section-head"><span class="idx">02</span><h2>Dispatches — agency &amp; brand launches</h2></div>
+    <div class="section-sub">India · pre-Berlin</div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Indigo Consulting</span>
+        Copywriter (Intern)<br>
+        Ideation
+      </div>
+      <div class="body">
+        <h3>Ideation, copywriting &amp; beauty social</h3>
+        <p>Copywriting and creative ideation work at Indigo Consulting. As part of the same internship, handled social media and influencer coordination for Maybelline and NYX Professional Makeup.</p>
+        <div class="result-chips">
+          <span>Maybelline</span>
+          <span>NYX Professional Makeup</span>
+        </div>
+        <div class="links">
+          <a href="https://www.youtube.com/watch?v=dyEbm4GR6Do" target="_blank" rel="noopener">Watch the spot ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Zeno Group</span>
+        PR &amp; communications
+      </div>
+      <div class="body">
+        <h3>India launch comms: Spotify and Kia Motors</h3>
+        <p>Worked on PR and communications for Spotify's 2019 entry into the Indian market, and for Kia Motors' 2019 India launch — the debut of the Kia Seltos alongside the opening of Kia's Anantapur, Andhra Pradesh manufacturing plant.</p>
+        <div class="result-chips">
+          <span>Spotify India launch, 2019</span>
+          <span>Kia Motors India launch, 2019</span>
+        </div>
+        <div class="links">
+          <a href="https://newsroom.spotify.com/2019-02-26/spotify-launches-in-india/" target="_blank" rel="noopener">Spotify launches in India ↗</a>
+          <a href="https://newsroom.spotify.com/2024-03-12/five-years-of-spotify-in-india-a-look-back-at-our-greatest-hits/" target="_blank" rel="noopener">Five years of Spotify in India ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">MSL Group</span>
+        Publicis Groupe<br>
+        <span class="dates">Jul 2022 – May 2023</span>
+      </div>
+      <div class="body">
+        <h3>Client servicing across finance, tech, and auto</h3>
+        <p>Owned client servicing from brief intake to final delivery for accounts including Mastercard, Spotify, WaterAid Foundation, and BYD, coordinating freelancer and agency schedules across multiple markets.</p>
+        <div class="result-chips">
+          <span>Mastercard</span>
+          <span>Spotify</span>
+          <span>WaterAid Foundation</span>
+          <span>BYD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Weber Shandwick</span>
+        IPG network<br>
+        <span class="dates">Feb 2022 – Jun 2022</span>
+      </div>
+      <div class="body">
+        <h3>Running the Ericsson IPTSE programme</h3>
+        <p>Administered the Ericsson/Meta-backed Intellectual Property Talent Search Examination (IPTSE) end to end — briefing, prioritization, execution tracking, and final reporting — a national programme promoting IP-rights awareness among students and professionals in India.</p>
+        <div class="result-chips">
+          <span>15,000+ participants</span>
+          <span>+30% engagement</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Genesis BCW</span>
+        WPP<br>
+        <span class="dates">Sept 2020 – Feb 2022</span>
+      </div>
+      <div class="body">
+        <h3>Crisis, tech, and e-commerce accounts</h3>
+        <p>Maintained consistent messaging documentation across technology, aviation, and e-commerce clients through always-on and crisis-response processes. Accounts included Intel (comms support around the <a href="https://all-ai.webflow.io/2020-summit" target="_blank" rel="noopener">All.ai 2020 Summit</a>), Sennheiser India (Amazon Prime Day Sale push), and IndiGo Airlines.</p>
+        <p>Authored the submission that won <strong>Bronze</strong> at PR Awards Asia 2020 in Reputation &amp; Issues Management for "IndiGo Flying High Despite Cockpit Battle" (client: InterGlobe Aviation / IndiGo).</p>
+        <div class="result-chips">
+          <span>PR Awards Asia 2020 — Bronze</span>
+          <span>IndiGo Airlines</span>
+          <span>Intel</span>
+          <span>Sennheiser India</span>
+        </div>
+        <div class="links">
+          <a href="https://prawardsasia.com/winners/2020/" target="_blank" rel="noopener">PR Awards Asia 2020 winners ↗</a>
+          <a href="https://all-ai.webflow.io/2020-summit" target="_blank" rel="noopener">All.ai 2020 Summit (Intel) ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Social media management</span>
+        ~3 years, multiple brands<br>
+        Instagram · Facebook · X
+      </div>
+      <div class="body">
+        <h3>Live events, national broadcasts, and brand pages</h3>
+        <p>Managed social and live-tweeting for national live events, including presidential events in India and the Ayushman Bharat health mela — plus ongoing page management, content and campaign planning, competitor mapping, and influencer marketing across brand accounts.</p>
+        <div class="result-chips">
+          <span>Live event coverage</span>
+          <span>Multi-brand page management</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dispatch">
+      <div class="meta">
+        <span class="org">Pratigya Campaign</span>
+        Foundational work
+      </div>
+      <div class="body">
+        <h3>Early campaign &amp; comms work</h3>
+        <p>Foundational communications work with Pratigya Campaign, an early stop in a career that later moved into agency PR and B2B SaaS marketing.</p>
+        <div class="result-chips">
+          <span>pratigyacampaign.org</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="section-head"><span class="idx">03</span><h2>Selected writing</h2></div>
+    <div class="writing-grid">
+      <div class="writing-card">
+        <span class="tag">Regulation</span>
+        <h4>How the EU AI Act Can Change the ADAS Industry</h4>
+        <p>What the EU AI Act means for driver-assistance systems and the visual data they collect.</p>
+        <a href="https://brighter.ai/resources/how-the-eu-ai-act-can-change-the-adas-industry/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">Regulation</span>
+        <h4>Understanding Business Obligations: Global Privacy Regulations in 2026</h4>
+        <p>A rundown of what companies handling visual data need to track across global privacy law in 2026.</p>
+        <div class="result-chips" style="margin-bottom:12px;"><span>4,000+ reads</span></div>
+        <a href="https://brighter.ai/resources/understanding-business-obligations-global-privacy-regulations-in-2026/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">Blog</span>
+        <h4>The Multi-Million Dollar Snapshot</h4>
+        <p>Why visual data breaches carry outsized financial risk, and what companies can do to avoid them.</p>
+        <a href="https://brighter.ai/resources/the-multi-million-dollar-snapshot-why-visual-data-breaches-are-costing-companies-fortunes-and-how-to-avoid-it/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">Blog</span>
+        <h4>Protecting What You See</h4>
+        <p>How to secure visual PII with AI-based redaction, from capture to storage.</p>
+        <a href="https://brighter.ai/resources/protecting-what-you-see-how-to-secure-visual-pii-with-ai-redaction/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">Product</span>
+        <h4>The Case for On-Premise Anonymization</h4>
+        <p>Privacy, control, and efficiency arguments for running anonymization inside a company's own infrastructure.</p>
+        <a href="https://brighter.ai/resources/the-case-for-on-premise-anonymization-privacy-control-and-efficiency/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">Product launch</span>
+        <h4>Revolutionizing Privacy in Surveillance</h4>
+        <p>Introducing Full Body Blur, extending anonymization beyond faces and plates for surveillance footage.</p>
+        <a href="https://brighter.ai/resources/revolutionizing-privacy-in-surveillance-introducing-full-body-blur-for-comprehensive-protection-and-compliance/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">News</span>
+        <h4>brighter AI Aligns With TISAX Security Standards</h4>
+        <p>Announcing alignment with the automotive industry's TISAX information-security standard.</p>
+        <a href="https://brighter.ai/resources/brighter-ai-aligns-with-tisax-security-standards/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">How-to</span>
+        <h4>How to Process PIIs With brighter Redact Edge</h4>
+        <p>A practical walkthrough of processing personally identifiable information with the Edge product.</p>
+        <a href="https://brighter.ai/resources/how-to-process-personally-identifiable-information-piis-with-brighter-redact-edge/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">How-to</span>
+        <h4>How to Anonymize With Our Fully Managed Solution</h4>
+        <p>A guide to getting started with the fully managed anonymization service.</p>
+        <a href="https://brighter.ai/resources/how-to-anonymize-with-our-fully-managed-solution/" target="_blank" rel="noopener">Read the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">Campaign</span>
+        <h4>LinkedIn campaign</h4>
+        <p>Organic LinkedIn campaign promoting brighter AI's product and content.</p>
+        <div class="result-chips" style="margin-bottom:12px;"><span>7,000+ impressions</span></div>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7432363934160142336" target="_blank" rel="noopener">View the post ↗</a>
+      </div>
+      <div class="writing-card">
+        <span class="tag">Campaign</span>
+        <h4>Case study promotion</h4>
+        <p>LinkedIn promotion driving traffic to a customer case study.</p>
+        <div class="result-chips" style="margin-bottom:12px;"><span>25,000+ impressions</span></div>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7430551792989425664" target="_blank" rel="noopener">View the post ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reveal">
+    <div class="section-head"><span class="idx">04</span><h2>Credentials</h2></div>
+    <div class="cred-cols">
+      <div>
+        <h4>Education</h4>
+        <div class="cred-item">
+          <div class="t">MBA, International Marketing (Distinction)</div>
+          <div class="s">IU International University, dual degree with London South Bank University — Oct 2023 – Oct 2024</div>
+        </div>
+        <div class="cred-item">
+          <div class="t">PG Diploma, PR &amp; Corporate Communications</div>
+          <div class="s">St. Xavier's, Mumbai — Apr 2019 – Apr 2020</div>
+        </div>
+        <div class="cred-item">
+          <div class="t">Bachelor of Commerce, Finance</div>
+          <div class="s">University of Delhi — Jun 2015 – May 2018</div>
+        </div>
+      </div>
+      <div>
+        <h4>Agencies &amp; awards</h4>
+        <div class="cred-item">
+          <div class="t">Agency background</div>
+          <div class="s">Zeno Group · Indigo Consulting · MSL Group / Publicis · Weber Shandwick / IPG · Genesis BCW / WPP</div>
+        </div>
+        <div class="cred-item">
+          <div class="t">German AI Awards 2024</div>
+          <div class="s">Winner — <a href="https://www.axelspringer.com/en/ax-press-release/welt-awards-the-german-ai-award-to-pioneers-and-practitioners-from-business-and-science" target="_blank" rel="noopener" style="color:var(--paper-dim);">press release ↗</a></div>
+        </div>
+        <div class="cred-item">
+          <div class="t">PR Awards Asia 2020</div>
+          <div class="s">Bronze, Reputation &amp; Issues Management — IndiGo Airlines — <a href="https://prawardsasia.com/winners/2020/" target="_blank" rel="noopener" style="color:var(--paper-dim);">winners page ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <p class="cta">Based in Berlin. Open to product marketing, demand gen and performance marketing roles.</p>
+    <div class="links">
+      <a href="mailto:sashwatshreeja@gmail.com">sashwatshreeja@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sashwatshreeja/" target="_blank" rel="noopener">linkedin.com/in/sashwatshreeja</a>
+    </div>
+    <p class="fine">Last updated July 2026</p>
+  </footer>
+
+</div>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  els.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
